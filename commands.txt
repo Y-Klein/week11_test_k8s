@@ -1,0 +1,38 @@
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r .\streamlit_minikube_app-main\requirements.txt
+streamlit run .\streamlit_minikube_app-main\main.py
+minikube start
+minikube status
+git add .
+git commit -m "first push for main branch"
+git push
+git checkout -b image
+ git add .
+git commit -m "add Dockerfile "
+ git add .
+git commit -m "add image-README.md "
+ git push -u origin image
+ docker build -t yklain/k8s_test:v1 .
+docker run -d --name k8s_test -p 8501:8501 yklain/k8s_test:v1
+git checkout main
+ git pull
+docker push yklain/k8s_test:v1
+git checkout -b pod
+ git commit -am  "add pod.yaml file"
+git commit -m "add pod-README.md file "
+ git push -u origin pod
+ kubectl apply -f .\pod.yaml
+kubectl get all
+git checkout main
+git pull
+ git checkout -b service
+git commit -am  "add service.yaml file"
+git commit -am  "add service-README.md file"
+git push -u origin service
+kubectl apply -f .\service.yaml
+kubectl get all
+ minikube service k8s-test --url
+git checkout main
+git pull
+
