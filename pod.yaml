@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: k8s-test
-      image: yklain/k8s_test
+      image: yklain/k8s_test:v1
       ports:
         - containerPort: 8501

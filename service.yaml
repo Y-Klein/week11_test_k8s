@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: k8s-test
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 8501
       targetPort: 8501
